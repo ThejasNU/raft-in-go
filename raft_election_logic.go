@@ -117,9 +117,12 @@ func (this *RaftNode) startElection() {
 // becomeFollower sets a node to be a follower and resets its state.
 func (this *RaftNode) becomeFollower(term int) {
 	this.write_log("became Follower with term=%d; log=%v", term, this.log)
-
 	// IMPLEMENT becomeFollower; do you need to start a goroutine here, maybe?
 	//-------------------------------------------------------------------------------------------/
 	// TODO
 	//-------------------------------------------------------------------------------------------/
+	this.currentTerm=term
+	this.votedFor=-1
+	this.state="Follower"
+	// todo later: figure out go routine
 }
