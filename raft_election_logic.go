@@ -100,7 +100,6 @@ func (this *RaftNode) startElection() {
 
 				//-------------------------------------------------------------------------------------------/
 				if this.currentTerm < reply.Term{
-					this.write_log("Candidate became Follower")
 					this.becomeFollower(reply.Term)
 					return
 				} else if reply.Term == this.currentTerm {
@@ -110,8 +109,6 @@ func (this *RaftNode) startElection() {
 						if votesReceived > (n/2){
 							this.write_log("Candidate %d is now the leader",this.id)
 							this.startLeader()
-							return
-							
 						}
 					}
 				}
