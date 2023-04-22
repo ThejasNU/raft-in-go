@@ -155,8 +155,9 @@ func (this *RaftNode) broadcastHeartbeats() {
 
 						//-------------------------------------------------------------------------------------------/
 						// TODO
+						this.nextIndex[peerId] += -1
 						//-------------------------------------------------------------------------------------------/
-						this.nextIndex[peerId] = this.nextIndex[peerId] - 1
+						
 
 						if (aeType == "Heartbeat" && LogHeartbeatMessages) || aeType == "AppendEntries" {
 							this.write_log("%s reply from NODE %d was failure; Hence, decrementing its nextIndex", aeType, peerId)
