@@ -52,7 +52,7 @@ func (this *RaftNode) HandleRequestVote(args RequestVoteArgs, reply *RequestVote
 		// TODO: indicate that it has voted.
 		candidateVotedFor := args.CandidateId
 		this.votedFor = candidateVotedFor
-		reply.voteGranted = true
+		reply.VoteGranted = true
 	} else {
 		reply.VoteGranted = false
 	}
